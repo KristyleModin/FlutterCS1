@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 
-class Practice extends StatelessWidget {
-  const Practice({super.key});
+class Activitythree extends StatefulWidget {
+  const Activitythree({super.key});
 
+  @override
+  State<Activitythree> createState() => _ActivitythreeState();
+}
+
+class _ActivitythreeState extends State<Activitythree> {
+  bool rememberMe = false;
+  
   @override
   Widget build(BuildContext context) {
     // Get screen size
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final isMobile = screenWidth < 600; // Adjust layout for mobile screens
+
+
 
     return Scaffold(
       body: Stack(
@@ -100,8 +109,16 @@ class Practice extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Checkbox(value: false, onChanged: (value) {}),
-                              Text("Remember me"),
+                              Checkbox(
+                                value: rememberMe, 
+                                onChanged: (value) {
+                                  setState(() {
+                                    rememberMe = value!;
+                                    }
+                                  );
+                                }
+                              ),
+                              Text("Remember Me"), 
                             ],
                           ),
                           TextButton(
